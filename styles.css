@@ -72,6 +72,37 @@ body {
   z-index: 1;
 }
 
+/* On phones the 3 panels are wider than the screen. Instead of clipping the
+   side panels invisibly, let the row scroll horizontally with a swipe, and
+   snap each panel into full view so it doesn't stop half-way. */
+@media (max-width: 900px) {
+  body {
+    align-items: flex-start;
+    padding: 16px 0;
+  }
+
+  .app {
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding: 0 16px;
+    scrollbar-width: none;
+  }
+
+  .app::-webkit-scrollbar {
+    display: none;
+  }
+
+  .reminders,
+  .calculator,
+  .history {
+    flex-shrink: 0;
+    scroll-snap-align: center;
+  }
+}
+
 .calculator {
   width: 320px;
   border-radius: 20px;

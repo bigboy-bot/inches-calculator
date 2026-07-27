@@ -459,3 +459,9 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
+
+// On phones the 3 panels scroll horizontally; open centered on the calculator
+// (the main panel) instead of stranded at the left edge on Reminders.
+if (window.matchMedia('(max-width: 900px)').matches) {
+  document.querySelector('.calculator').scrollIntoView({ inline: 'center', block: 'nearest' });
+}
