@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Inches Calculator</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="manifest" href="manifest.json" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="icon" href="icon-192.png" />
+<meta name="theme-color" content="#14161a" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Inches Calc" />
+</head>
+<body>
+  <div class="bg-blobs" aria-hidden="true">
+    <span class="blob blob-lg blob-a"></span>
+    <span class="blob blob-lg blob-b"></span>
+    <span class="blob blob-md blob-c"></span>
+    <span class="blob blob-md blob-d"></span>
+    <span class="blob blob-sm blob-e"></span>
+    <span class="blob blob-sm blob-f"></span>
+  </div>
+
+  <div class="app">
+    <div class="reminders">
+      <div class="reminders-header">Reminders</div>
+      <textarea class="reminders-text" id="reminders" spellcheck="false"></textarea>
+    </div>
+
+    <div class="calculator">
+      <div class="settings-row">
+        <button class="layout-toggle" id="layoutToggle" type="button">Compact</button>
+        <label for="accentPicker">Accent</label>
+        <input type="color" id="accentPicker" value="#4ade80" />
+      </div>
+
+      <div class="display">
+        <div class="expr" id="expr">&nbsp;</div>
+        <div class="main" id="main">0</div>
+        <div class="hint" id="hint">&nbsp;</div>
+      </div>
+
+      <div class="ruler" id="ruler">
+        <div class="ruler-track" id="rulerTrack"></div>
+      </div>
+
+      <div class="denom-row">
+        <button class="key key-denom" data-key="den2">1/2</button>
+        <button class="key key-denom" data-key="den4">1/4</button>
+        <button class="key key-denom" data-key="den8">1/8</button>
+        <button class="key key-denom" data-key="den16">1/16</button>
+        <button class="key key-denom" data-key="den32">/32</button>
+      </div>
+
+      <div class="op-row">
+        <button class="key key-op" data-key="div">÷</button>
+        <button class="key key-op" data-key="mul">×</button>
+        <button class="key key-op" data-key="sub">−</button>
+        <button class="key key-op" data-key="add">+</button>
+      </div>
+
+      <div class="keypad-wrap">
+        <div class="keypad">
+          <button class="key key-num" data-key="7">7</button>
+          <button class="key key-num" data-key="8">8</button>
+          <button class="key key-num" data-key="9">9</button>
+
+          <button class="key key-num" data-key="4">4</button>
+          <button class="key key-num" data-key="5">5</button>
+          <button class="key key-num" data-key="6">6</button>
+
+          <button class="key key-num" data-key="1">1</button>
+          <button class="key key-num" data-key="2">2</button>
+          <button class="key key-num" data-key="3">3</button>
+
+          <button class="key key-num key-zero" data-key="0">0</button>
+          <button class="key key-num" data-key="slash">/</button>
+        </div>
+
+        <div class="fn-col">
+          <button class="key key-fn" data-key="ac">AC</button>
+          <button class="key key-fn" data-key="back">⌫</button>
+          <button class="key key-fn" data-key="space">␣</button>
+        </div>
+      </div>
+
+      <button class="key key-eq" data-key="eq">=</button>
+    </div>
+
+    <div class="history">
+      <div class="history-header">
+        <span>History</span>
+        <button class="history-clear" id="historyClear">Clear</button>
+      </div>
+      <ul class="history-list" id="historyList"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
