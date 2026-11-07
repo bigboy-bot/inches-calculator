@@ -4,6 +4,8 @@
 
 * {
   box-sizing: border-box;
+  /* Swiping and scrolling still work, but a double-tap no longer zooms the page on iPhone. */
+  touch-action: manipulation;
 }
 
 body {

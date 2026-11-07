@@ -452,6 +452,11 @@ buildRuler();
 render();
 renderHistory();
 
+// iPhone Safari ignores user-scalable=no, so also block its pinch-zoom gesture directly.
+['gesturestart', 'gesturechange', 'gestureend'].forEach((name) => {
+  document.addEventListener(name, (e) => e.preventDefault());
+});
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('service-worker.js').catch(() => {

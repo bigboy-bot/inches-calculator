@@ -1,4 +1,4 @@
-const CACHE_NAME = 'inches-calculator-v3';
+const CACHE_NAME = 'inches-calculator-v4';
 const ASSETS = [
   './',
   './index.html',
