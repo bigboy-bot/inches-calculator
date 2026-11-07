@@ -6,11 +6,31 @@
   box-sizing: border-box;
   /* Swiping and scrolling still work, but a double-tap no longer zooms the page on iPhone. */
   touch-action: manipulation;
+  /* Double-tapping text on iPhone selects a word and can nudge the page; this app has no text to select. */
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* The reminders box is the one place you do type and select text. */
+.reminders-text {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* Lock the page in place: the document itself can never scroll or bounce, so a double-tap
+   can't push it down. (Only the panel row scrolls sideways, inside .app.) */
+html {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
 }
 
 body {
+  position: fixed;
+  inset: 0;
+  overscroll-behavior: none;
   margin: 0;
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,6 +107,7 @@ body {
     width: 100vw;
     max-width: 100vw;
     overflow-x: auto;
+    overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
     padding: 0 16px;

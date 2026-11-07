@@ -452,6 +452,10 @@ buildRuler();
 render();
 renderHistory();
 
+// Safety net: if the page ever gets nudged (double-tap, keyboard, rubber-band), put it straight back.
+window.addEventListener('scroll', () => window.scrollTo(0, 0));
+appEl.addEventListener('scroll', () => { if (appEl.scrollTop !== 0) appEl.scrollTop = 0; });
+
 // iPhone Safari ignores user-scalable=no, so also block its pinch-zoom gesture directly.
 ['gesturestart', 'gesturechange', 'gestureend'].forEach((name) => {
   document.addEventListener(name, (e) => e.preventDefault());
